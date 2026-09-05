@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="அருளின் எழுத்துக்கள் — சென்னையை நோக்கி என் பயணம் மற்றும் அருள்செல்வனின் எழுத்துக்கள்.">
+  <title>அருளின் எழுத்துக்கள்</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">அருளின் எழுத்துக்கள்</div>
+</header>
+
+<main class="container">
+  <h1>அருளின் எழுத்துக்கள்</h1>
+  <h2>சென்னையை நோக்கி என் பயணம்</h2>
+
+  <section id="sections" class="cards" aria-label="எழுத்துப் பகுதிகள்"></section>
+
+  <div class="add-box" onclick="openAddForm()">＋ புதிய பகுதியைச் சேர்க்க</div>
+  <p class="note">தலைப்புகள் touch செய்தால் எதுவும் நடக்காது. கீழே உள்ள பகுதிப் பெட்டிகள் மட்டுமே திறக்கும்.</p>
+</main>
+
+<div id="modal" class="modal hidden">
+  <div class="modal-card">
+    <button class="close" onclick="closeModal()" aria-label="மூடு">×</button>
+    <h3 id="modalTitle"></h3>
+    <form id="sectionForm">
+      <label>பகுதி பெயர்<input id="name" required placeholder="உதா: முதல் இரண்டு பக்கங்கள்"></label>
+      <label>உங்கள் எழுத்து<textarea id="content" rows="10" placeholder="இந்தப் பகுதியில் உங்கள் எழுத்தை இடுங்கள்..."></textarea></label>
+      <label>படம் (விருப்பம்)<input id="image" type="file" accept="image/*"></label>
+      <label>PDF (விருப்பம்)<input id="pdf" type="file" accept="application/pdf"></label>
+      <button class="primary" type="submit">சேமிக்க</button>
+    </form>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

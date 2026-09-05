@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ta">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>பகுதி — அருளின் எழுத்துக்கள்</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header"><div class="brand">அருளின் எழுத்துக்கள்</div></header>
+<main class="container article">
+  <a class="back" href="index.html">← பகுதிகளுக்குத் திரும்ப</a>
+  <h1 id="title">பகுதி</h1>
+  <div id="content" class="story"></div>
+  <div id="media"></div>
+</main>
+<script>
+const params=new URLSearchParams(location.search);
+const id=params.get('id');
+const data=JSON.parse(localStorage.getItem('arulin_sections')||'[]');
+const item=data.find(x=>x.id===id);
+if(!item){document.getElementById('content').textContent='இந்தப் பகுதி கிடைக்கவில்லை.';}
+else{
+ document.getElementById('title').textContent=item.name;
+ document.title=item.name+' — அருளின் எழுத்துக்கள்';
+ document.getElementById('content').textContent=item.content||'';
+ const m=document.getElementById('media');
+ if(item.image){const img=document.createElement('img');img.className='story-image';img.src=item.image;m.appendChild(img);}
+ if(item.pdf){const a=document.createElement('a');a.className='pdf-link';a.href=item.pdf;a.download=item.pdfName||'section.pdf';a.textContent='📄 PDF பார்க்க / பதிவிறக்க';m.appendChild(a);}
+}
+</script>
+</body>
+</html>
