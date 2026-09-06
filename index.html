@@ -1,1217 +1,530 @@
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>அருளின் எழுத்துக்கள்</title>
+  <title>அருளின் எழுத்துக்கள்</title>
 
-<meta name="description"
-content="அருளின் எழுத்துக்கள் — ம. அருள் செல்வனின் தமிழ் எழுத்துக்கள் மற்றும் சென்னையை நோக்கி என் முதல் பயணம்.">
+  <meta name="description" content="அருளின் எழுத்துக்கள் - சென்னையை நோக்கி என் முதல் பயணம்">
+  <meta name="author" content="ம. அருள் செல்வன்">
 
-<style>
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap');
-
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-
-body{
-    font-family:"Noto Sans Tamil",sans-serif;
-    background:#f5f7fb;
-    color:#172033;
-    line-height:1.8;
-}
-
-/* BACKGROUND */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:350px;
-    height:350px;
-    background:#ddd8ff;
-    border-radius:50%;
-    filter:blur(90px);
-    top:-120px;
-    left:-120px;
-    opacity:.45;
-    z-index:-1;
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:350px;
-    height:350px;
-    background:#e4e9ff;
-    border-radius:50%;
-    filter:blur(90px);
-    bottom:-150px;
-    right:-100px;
-    opacity:.5;
-    z-index:-1;
-}
-
-/* HEADER */
-
-.hero{
-    background:linear-gradient(135deg,#111827,#24204a,#4c3fb7);
-    color:white;
-    text-align:center;
-    padding:75px 20px 65px;
-    border-radius:0 0 45px 45px;
-    box-shadow:0 20px 60px rgba(0,0,0,.20);
-}
-
-.small-title{
-    display:inline-block;
-    padding:6px 16px;
-    border:1px solid rgba(255,255,255,.25);
-    border-radius:50px;
-    font-size:13px;
-    color:#e8e5ff;
-    margin-bottom:15px;
-}
-
-.hero h1{
-    font-size:clamp(38px,8vw,75px);
-    font-weight:800;
-    line-height:1.25;
-}
-
-.story-title{
-    margin-top:20px;
-    font-size:clamp(21px,4vw,32px);
-    font-weight:700;
-}
-
-.author{
-    margin-top:5px;
-    font-size:18px;
-    color:#e5e2ff;
-    font-weight:600;
-}
-
-.hero-description{
-    margin-top:20px;
-    color:#d6d8e5;
-    font-size:14px;
-}
-
-/* MAIN */
-
-.container{
-    max-width:1000px;
-    margin:auto;
-    padding:30px 17px 70px;
-}
-
-/* INTRO */
-
-.intro{
-    background:white;
-    padding:25px;
-    border-radius:25px;
-    border:1px solid #e6e8ef;
-    box-shadow:0 12px 35px rgba(0,0,0,.07);
-    margin-bottom:22px;
-}
-
-.intro span{
-    color:#6354dc;
-    font-size:13px;
-    font-weight:800;
-}
-
-.intro h2{
-    margin-top:3px;
-    font-size:23px;
-}
-
-.intro p{
-    color:#667085;
-    margin-top:4px;
-}
-
-/* SECTION LIST */
-
-#sections{
-    display:grid;
-    gap:15px;
-}
-
-.section-card{
-    width:100%;
-    border:1px solid #e3e6ed;
-    background:white;
-    border-radius:22px;
-    padding:20px;
-    display:flex;
-    align-items:center;
-    gap:16px;
-    text-align:left;
-    cursor:pointer;
-    transition:.2s;
-    box-shadow:0 8px 28px rgba(0,0,0,.05);
-}
-
-.section-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 40px rgba(0,0,0,.10);
-    border-color:#c9c3ff;
-}
-
-.number{
-    width:50px;
-    height:50px;
-    flex-shrink:0;
-    background:#efedff;
-    color:#5546d8;
-    border-radius:16px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-weight:800;
-}
-
-.section-info h3{
-    font-size:18px;
-}
-
-.section-info p{
-    color:#98a2b3;
-    font-size:13px;
-}
-
-.arrow{
-    margin-left:auto;
-    font-size:25px;
-    color:#8b84dd;
-}
-
-/* ADD BUTTON */
-
-.add-section{
-    width:100%;
-    margin-top:18px;
-    padding:19px;
-    border:2px dashed #bbb4ff;
-    border-radius:22px;
-    background:white;
-    display:flex;
-    align-items:center;
-    gap:15px;
-    cursor:pointer;
-    text-align:left;
-    transition:.2s;
-}
-
-.add-section:hover{
-    background:#faf9ff;
-    border-color:#6255dd;
-}
-
-.plus{
-    width:50px;
-    height:50px;
-    border-radius:16px;
-    background:#efedff;
-    color:#6255dd;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:28px;
-}
-
-.add-text strong{
-    display:block;
-    font-size:16px;
-}
-
-.add-text small{
-    color:#98a2b3;
-}
-
-.add-arrow{
-    margin-left:auto;
-    font-size:25px;
-    color:#6255dd;
-}
-
-/* FOOTER */
-
-footer{
-    max-width:1000px;
-    margin:auto;
-    padding:20px;
-    display:flex;
-    justify-content:space-between;
-    color:#98a2b3;
-    font-size:12px;
-}
-
-/* MODAL */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(15,23,42,.65);
-    backdrop-filter:blur(6px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-    z-index:1000;
-}
-
-.modal.show{
-    display:flex;
-}
-
-.modal-box{
-    width:min(700px,100%);
-    max-height:92vh;
-    overflow:auto;
-    background:white;
-    border-radius:28px;
-    padding:28px;
-    position:relative;
-    box-shadow:0 30px 90px rgba(0,0,0,.3);
-}
-
-.close{
-    position:absolute;
-    top:14px;
-    right:15px;
-    width:40px;
-    height:40px;
-    border:0;
-    border-radius:50%;
-    background:#f2f4f7;
-    font-size:24px;
-    cursor:pointer;
-}
-
-.modal-box h2{
-    margin:5px 50px 20px 0;
-}
-
-label{
-    display:block;
-    margin-top:15px;
-    font-weight:700;
-    font-size:14px;
-}
-
-input,
-textarea{
-    width:100%;
-    margin-top:7px;
-    border:1px solid #d0d5dd;
-    border-radius:14px;
-    padding:12px;
-    font-family:inherit;
-    font-size:15px;
-    outline:none;
-}
-
-textarea{
-    min-height:180px;
-    resize:vertical;
-}
-
-input:focus,
-textarea:focus{
-    border-color:#6255dd;
-    box-shadow:0 0 0 4px #efedff;
-}
-
-.buttons{
-    display:flex;
-    justify-content:flex-end;
-    gap:10px;
-    margin-top:20px;
-}
-
-.cancel{
-    border:0;
-    background:#f2f4f7;
-    padding:12px 18px;
-    border-radius:13px;
-    font-weight:700;
-}
-
-.save{
-    border:0;
-    background:#5546d8;
-    color:white;
-    padding:12px 20px;
-    border-radius:13px;
-    font-weight:700;
-}
-
-.note{
-    margin-top:15px;
-    font-size:11px;
-    color:#98a2b3;
-}
-
-/* READER */
-
-.reader{
-    display:none;
-    max-width:900px;
-    margin:auto;
-    padding:25px 17px 70px;
-}
-
-.back{
-    display:inline-block;
-    color:#5546d8;
-    font-weight:700;
-    text-decoration:none;
-    margin-bottom:18px;
-}
-
-.reader-box{
-    background:white;
-    border-radius:30px;
-    padding:clamp(24px,6vw,55px);
-    border:1px solid #e5e7eb;
-    box-shadow:0 18px 55px rgba(0,0,0,.08);
-}
-
-.reader-label{
-    color:#6255dd;
-    font-size:13px;
-    font-weight:800;
-}
-
-.reader-title{
-    margin-top:7px;
-    font-size:clamp(27px,6vw,43px);
-    line-height:1.4;
-}
-
-.reader-content{
-    margin-top:30px;
-    font-size:18px;
-    color:#344054;
-}
-
-.reader-content p{
-    margin-bottom:22px;
-}
-
-.reader-content img{
-    width:100%;
-    max-width:700px;
-    display:block;
-    margin:25px auto;
-    border-radius:20px;
-}
-
-.pdf{
-    margin-top:25px;
-    padding:20px;
-    border-radius:18px;
-    background:#f8f9fc;
-    border:1px solid #e4e7ec;
-}
-
-.pdf a{
-    color:#5546d8;
-    font-weight:800;
-    text-decoration:none;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-    .hero{
-        padding:55px 15px 45px;
-        border-radius:0 0 30px 30px;
+  <style>
+    * {
+      box-sizing: border-box;
     }
 
-    .intro{
-        padding:20px;
+    body {
+      margin: 0;
+      background: #f5f1e8;
+      color: #24201c;
+      font-family: "Noto Sans Tamil", "Latha", sans-serif;
     }
 
-    .section-card{
-        padding:17px;
+    .container {
+      width: min(900px, 92%);
+      margin: auto;
+      padding: 45px 0 60px;
     }
 
-    .number{
-        width:44px;
-        height:44px;
+    .site-title {
+      text-align: center;
+      font-size: clamp(32px, 7vw, 58px);
+      font-weight: 800;
+      margin: 0 0 18px;
+      color: #201b17;
     }
 
-    footer{
-        flex-direction:column;
-        text-align:center;
-        gap:5px;
+    .story-title {
+      text-align: center;
+      font-size: clamp(24px, 5vw, 40px);
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #352a22;
     }
 
-}
+    .author {
+      text-align: center;
+      font-size: clamp(18px, 4vw, 25px);
+      margin-bottom: 42px;
+      color: #66564a;
+    }
 
-</style>
+    .section-box {
+      background: #ffffff;
+      border: 1px solid #ddd2c5;
+      border-radius: 18px;
+      padding: 22px 24px;
+      margin: 18px 0;
+      cursor: pointer;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
+      transition: 0.2s ease;
+    }
+
+    .section-box:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    .section-box:active {
+      transform: scale(0.99);
+    }
+
+    .section-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: #30251e;
+    }
+
+    .add-button {
+      width: 100%;
+      border: 2px dashed #9b8877;
+      background: transparent;
+      color: #554438;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 20px;
+      font-size: 19px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .add-button:hover {
+      background: #eee7dc;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .reader {
+      background: #fffdf9;
+      border-radius: 20px;
+      padding: 28px;
+      margin-top: 25px;
+      border: 1px solid #ddd2c5;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+    }
+
+    .reader h2 {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    .story-text {
+      font-size: 19px;
+      line-height: 2;
+      white-space: pre-line;
+      text-align: left;
+    }
+
+    .back-button {
+      border: none;
+      background: #3d332c;
+      color: white;
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 22px;
+    }
+
+    .form-box {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      margin-top: 25px;
+      border: 1px solid #ddd2c5;
+    }
+
+    .form-box input,
+    .form-box textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0 15px;
+      border: 1px solid #cfc3b7;
+      border-radius: 10px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .form-box textarea {
+      min-height: 180px;
+      resize: vertical;
+    }
+
+    .save-button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #3d332c;
+      color: white;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .empty {
+      text-align: center;
+      color: #76685c;
+      padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding-top: 30px;
+      }
+
+      .reader {
+        padding: 20px;
+      }
+
+      .story-text {
+        font-size: 17px;
+        line-height: 1.9;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<div class="container">
 
-<header class="hero">
+  <!-- MAIN TITLE -->
+  <h1 class="site-title">அருளின் எழுத்துக்கள்</h1>
 
-    <div class="small-title">
-        ✦ என் எழுத்துப் பயணம் ✦
+  <!-- STORY TITLE -->
+  <h2 class="story-title">சென்னையை நோக்கி என் முதல் பயணம்</h2>
+
+  <!-- AUTHOR -->
+  <div class="author">— ம. அருள் செல்வன்</div>
+
+
+  <!-- SECTION LIST -->
+  <div id="homePage">
+
+    <div
+      class="section-box"
+      onclick="openFirstStory()"
+    >
+      <div class="section-name">முதல் இரண்டு பக்கங்கள்</div>
     </div>
 
-    <h1>
-        அருளின் எழுத்துக்கள்
-    </h1>
+    <div id="savedSections"></div>
 
-    <div class="story-title">
-        சென்னையை நோக்கி என் முதல் பயணம்
-    </div>
-
-    <div class="author">
-        — ம. அருள் செல்வன்
-    </div>
-
-    <div class="hero-description">
-        என் நினைவுகளில் இருந்து எழுதப்படும் ஒரு உண்மைப் பயணம்…
-    </div>
-
-</header>
-
-
-<!-- ================= HOME ================= -->
-
-<main class="container" id="home">
-
-    <div class="intro">
-
-        <span>என் கதை</span>
-
-        <h2>
-            பக்கங்களைத் திறந்து படியுங்கள்
-        </h2>
-
-        <p>
-            ஒவ்வொரு பகுதியும் என் பயணத்தின் ஒரு நினைவாகும்.
-            ஒரு பகுதியைத் தேர்ந்தெடுத்து முழுமையாகப் படிக்கலாம்.
-        </p>
-
-    </div>
-
-
-    <!-- SECTION LIST -->
-
-    <div id="sections"></div>
-
-
-    <!-- ADD NEW SECTION -->
-
-    <button class="add-section" onclick="openModal()">
-
-        <div class="plus">
-            ＋
-        </div>
-
-        <div class="add-text">
-
-            <strong>
-                புதிய பகுதியைச் சேர்க்க
-            </strong>
-
-            <small>
-                புதிய தலைப்பு, எழுத்துக்கள், படம் அல்லது PDF
-            </small>
-
-        </div>
-
-        <div class="add-arrow">
-            →
-        </div>
-
+    <button class="add-button" onclick="showAddForm()">
+      ＋ புதிய பகுதியைச் சேர்க்க
     </button>
 
-</main>
+  </div>
 
 
-<!-- ================= FOOTER ================= -->
+  <!-- STORY READER -->
+  <div id="readerPage" class="hidden">
 
-<footer>
+    <button class="back-button" onclick="goHome()">
+      ← பின்னால் செல்ல
+    </button>
 
-    <span>
-        © <span id="year"></span> ம. அருள் செல்வன்
-    </span>
+    <div class="reader">
 
-    <span>
-        அருளின் எழுத்துக்கள்
-    </span>
+      <h2>முதல் இரண்டு பக்கங்கள்</h2>
 
-</footer>
+      <div class="story-text">
 
+சென்னையை நோக்கி என் முதல் பயணம்
 
-<!-- ================= ADD MODAL ================= -->
+நான் அப்பொழுது பதினொன்றாம் வகுப்பு படித்துக் கொண்டிருந்தேன்.
+எனக்குள் அப்பொழுதே ஒரு ஆசை இருந்தது. எப்படியாவது சென்னைக்கு
+ஒரு நாளாவது போய்விட வேண்டும் என்று.
 
-<div class="modal" id="modal">
+என் தாத்தாவிற்கு என்னை ஒரு முறையாவது சென்னைக்கு அழைத்துச்
+செல்ல வேண்டும் என்று, ஆசை. என் தாத்தாவை பற்றி சொல்ல வேண்டும்
+என்றால் அவர் ஒரு மாற்றுத்திறனாளி ஆவார். அவரின் ஒரு கால் நன்றாக
+இருக்கும் இன்னொரு கால் கட்டைக்காலாக இருக்கும். அவரிடமிருந்து
+நான் கற்றுக்கொண்டது என்னவென்றால் 77 வயதிலும் தன்னம்பிக்கையை
+இழக்காத மனிதர் ஆவார்.
 
-    <div class="modal-box">
+நான் திங்கட்கிழமை அன்று பள்ளிக்குச் சென்றிருந்தேன். "இன்று
+சாயங்காலம் நாம் சென்னைக்குச் செல்லும் ரயிலில் புறப்பட
+வேண்டும்.ஆதலால், நீ இன்று சாயங்காலம் விடுதியை விட்டு வீட்டிற்கு
+வந்துவிடு” என்றார் என் தாத்தா.
 
-        <button class="close" onclick="closeModal()">
-            ×
-        </button>
+நான் அப்பொழுது கேட்டேன் 'அம்மாச்சியும் கூட வராங்களா தாத்தா?”
+"ஆம் அம்மாச்சியும் கூட வர்றாங்க” என்றார் தாத்தா.
 
-        <div class="reader-label">
-            புதிய பகுதி
-        </div>
+திங்கட்கிழமை சாயங்காலம் என்னை வீட்டுக்கு அழைத்துச் செல்ல என்
+அப்பாவும் என் அண்ணனும் பள்ளிக்கு வந்தனர். அப்போது அங்கு
+அமர்ந்திருந்த தலைமை ஆசிரியர் அவர்களிடம் என் தாத்தாவின்
+நிலைமையை சொல்லி மூன்று நாள் விடுப்பு கேட்டார் என் அப்பா.
 
-        <h2>
-            உங்கள் அடுத்த பக்கத்தை உருவாக்குங்கள்
-        </h2>
+விடுப்பு கிடைத்த மகிழ்ச்சியில் நான் வேகமாக ஓடி என் பையில் இருந்து
+விடுப்பு விண்ணப்பத்தை எடுத்தேன். தலைமை ஆசிரியர் அதிக
+வேலையில் இருந்ததால், உதவித் தலைமை ஆசிரியரிடம் கையெழுத்தை
+பெற்றேன். அது மட்டுமல்லாமல் அங்கு பணியாற்றும் விடுதிக்காப்பாளர்
+ஐயா அவர்களிடமும் கையெழுத்தைப் பெற்றேன்;
 
+அப்பொழுது என் விடுதிக்காப்பாளர் ஐயா அவர்கள் கூறினார் "வருகை
+மற்றும் வெளியேறும் பதிவில் நீ கையெழுத்துட்டு! வீட்டிற்கு செல்லலாம். ”
 
-        <label>
-            பகுதியின் பெயர்
+இறுதியாக அங்கு பணியாற்றும் பாதுகாவலர் ஐயாவிடம் அந்த விடுப்பு
+விண்ணப்பத்தை கொடுத்துவிட்டு ஆக சந்தோசத்தில் நான் இருந்தேன்;
 
-            <input
-                id="sectionName"
-                type="text"
-                maxlength="100"
-                placeholder="எ.கா. சென்னைக்குப் புறப்பட்ட இரவு"
-            >
+ஆனால் நான் அதை வெளி காட்டவில்லை.
 
-        </label>
+என் அண்ணனும் இரு சக்கர வாகனத்தை இயக்க என் அப்பாவும் நானும்
+பின்னே உட்கார்ந்து. என் அண்ணன் வண்டியை மெதுவாக இயக்க
+ஆரம்பித்தான் ஒரு வழியாக பள்ளியை சுற்றுச்சுவரை விட்டு வெளியே
+வந்தோம் அப்பொழுது அங்கு ஒரு மேடு பள்ளம் இருக்கும் அந்த மேடு
+பள்ளத்தில் ஏறி இறங்கும் பொழுது எனக்கு ஒன்று ஞாபகம் வந்தது.
 
+அது என்னவென்றால் விடுதிக்காப்பாளர் ஐயா கூறிய வருகை மற்றும்
+வெளியேறும் பதிவில் கையெழுத்திட மறந்து விட்டேன். அதை உடனே என்
+அப்பாவிடம் கூறினேன்.
 
-        <label>
-            உங்கள் எழுத்துக்கள்
+என் அப்பா கூறினார் "நல்ல வேலை இப்பவே சொல்லிவிட்டாய் சரி நீயும்
+அண்ணனும் போய் பதிவு செய்துவிட்டு வாருங்கள். நான் சாலையில்
+நடந்து செல்கிறேன்” என்றார். அப்பாவை இறக்கி விட்டு நானும்
+அண்ணணும் திரும்பி பள்ளிக்குச் சென்றோம். அங்கு வருகை மற்றும்
+வெளியேறும் பதிவில் கையெழுத்திட்டு வேகமாக ஓடி வந்தேன். ஓடி வரும்
+போது என் சக நண்பர்கள் கூறினர் “என்ன வருகை மற்றும் வெளியேறும்
+பதிவில் பதிவு செய்ய மறந்து விட்டாயா?” நான் எல்லோருக்கும் பதில்
+சொல்லி வந்தேன் "ஆமாண்டா ஆமாண்டா மறந்து விட்டேன்”.
 
-            <textarea
-                id="sectionText"
-                placeholder="இங்கே உங்கள் கதையை எழுதுங்கள்..."
-            ></textarea>
+ஒரு வழியாக நான் என் அப்பா என் அண்ணன் மூன்று பேரும் வீட்டிற்கு
+வந்து சேர்ந்தோம். வீட்டிற்கு வந்தவுடனே என் அப்பாவும் என் அண்ணனும்
+கோவிலில் உள்ள வேலையை பார்க்க சென்று விட்டனர்.
 
-        </label>
+என் அன்னையோ பரிமாறும் வேலைக்கு சென்று விட்டார். திரும்பி வர
+எப்படியும் ஒன்பது மணி ஆகும் என்று எண்ணினேன்.
 
+உச்சகட்ட மகிழ்ச்சியில் நான் பத்து மணிக்கு கிளம்ப வேண்டிய நேரத்தில்
+6:00 மணிக்கெல்லாம் கிளம்பி உட்கார்ந்திருந்தேன்.
 
-        <label>
-            படம் சேர்க்கவும்
+-ம.அருள் செல்வன்
 
-            <input
-                id="sectionImage"
-                type="file"
-                accept="image/*"
-            >
+கோவிலூர், ஆலங்குடி,
+புதுக்கோட்டை.
 
-        </label>
+தொடரும்...
 
-
-        <label>
-            PDF சேர்க்கவும்
-
-            <input
-                id="sectionPDF"
-                type="file"
-                accept=".pdf,application/pdf"
-            >
-
-        </label>
-
-
-        <div class="buttons">
-
-            <button
-                class="cancel"
-                onclick="closeModal()"
-            >
-                ரத்து
-            </button>
-
-            <button
-                class="save"
-                onclick="saveSection()"
-            >
-                பகுதியைச் சேமிக்க
-            </button>
-
-        </div>
-
-
-        <div class="note">
-            குறிப்பு: இது தற்போது browser storage-ல் சேமிக்கப்படும் prototype.
-        </div>
+      </div>
 
     </div>
+  </div>
+
+
+  <!-- ADD NEW SECTION FORM -->
+  <div id="addPage" class="hidden">
+
+    <button class="back-button" onclick="goHome()">
+      ← பின்னால் செல்ல
+    </button>
+
+    <div class="form-box">
+
+      <h2>புதிய பகுதியைச் சேர்க்க</h2>
+
+      <label>பகுதியின் பெயர்</label>
+
+      <input
+        id="sectionName"
+        type="text"
+        placeholder="உதாரணம்: பள்ளியில் நடந்த சம்பவம்"
+      >
+
+      <label>எழுத்து</label>
+
+      <textarea
+        id="sectionText"
+        placeholder="உங்கள் எழுத்தை இங்கே எழுதுங்கள்..."
+      ></textarea>
+
+      <button class="save-button" onclick="saveSection()">
+        சேமிக்கவும்
+      </button>
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<!-- ================= READER ================= -->
-
-<section class="reader" id="reader">
-
-    <a
-        href="#"
-        class="back"
-        onclick="goHome(); return false;"
-    >
-        ← முகப்புப் பக்கத்திற்குச் செல்ல
-    </a>
-
-
-    <div class="reader-box">
-
-        <div class="reader-label">
-            அருளின் எழுத்துக்கள்
-        </div>
-
-        <h1
-            class="reader-title"
-            id="readerTitle"
-        ></h1>
-
-        <div
-            class="reader-content"
-            id="readerContent"
-        ></div>
-
-    </div>
-
-</section>
-
-
 <script>
 
-/* ==================================================
-   BASIC SETTINGS
-================================================== */
-
-const STORAGE_KEY = "ARULIN_EZHUTHUKKAL_DATA";
-
-
-/* ==================================================
-   STARTER STORY
-================================================== */
-
-const starterStory = {
-
-    id:"part-1",
-
-    name:"முதல் இரண்டு பக்கங்கள்",
-
-    text:`நான் அப்போது பதினொன்றாம் வகுப்பு படித்துக் கொண்டிருந்தேன்.
-
-அப்போது எனக்குள் ஒரு நீண்ட நாள் ஆசை இருந்தது — எப்படியாவது ஒரு நாள் சென்னைக்குச் செல்ல வேண்டும்.
-
-என் தாத்தா என்னை ஒரு முறை சென்னைக்கு அழைத்துச் செல்ல வேண்டும் என்று கூறியிருந்தார்.
-
-அவருக்கு 77 வயது. ஒரு கால் நன்றாக இருந்தாலும், இன்னொரு கால் ஊன்றுகோல் உதவியுடன் இருந்தது. ஆனாலும் அவருடைய தன்னம்பிக்கை குறையவில்லை.
-
-ஒரு வியாழக்கிழமை பள்ளியில் இருந்தபோது, அன்று மாலை ரயிலில் சென்னைக்குப் புறப்பட வேண்டும் என்று தாத்தா கூறினார்.
-
-அம்மாவும் சத்யாவும் வருவார்கள் என்று தெரிந்ததும் எனக்கு அளவில்லாத மகிழ்ச்சி.
-
-ஆனால் அந்த மகிழ்ச்சியை வெளியில் காட்டாமல் இருந்தேன்.
-
-மாலை அப்பாவும் அண்ணனும் என்னை பள்ளியில் இருந்து அழைத்துச் செல்ல வந்தார்கள்.
-
-தேவையான அனுமதிகள் மற்றும் கையெழுத்துகளைப் பெற பள்ளியில் பல இடங்களுக்கு ஓட வேண்டியிருந்தது.
-
-எல்லாம் முடிந்துவிட்டதாக நினைத்து வெளியே வந்தபோது, ஒரு முக்கியமான கையெழுத்து இன்னும் வாங்கவில்லை என்பது வழியில் நினைவுக்கு வந்தது.
-
-அந்த ஒரு சிறிய மறதி, எங்களை மீண்டும் பள்ளிக்குத் திரும்பச் செய்தது.
-
-அங்கே நண்பர்களின் கிண்டலும் இருந்தது.
-
-ஆனால் என் மனதில் இருந்தது ஒன்றே —
-
-இன்று மாலை சென்னைக்குப் புறப்படப் போகிறேன்!
-
-அதன்பிறகு நடந்ததுதான் என் வாழ்க்கையில் மறக்க முடியாத ஒரு பயணத்தின் தொடக்கம்…`,
-
-    image:"",
-
-    pdf:""
-
-};
-
-
-/* ==================================================
-   LOAD DATA
-================================================== */
-
-function getData(){
-
-    let data = localStorage.getItem(STORAGE_KEY);
-
-    if(!data){
-
-        localStorage.setItem(
-            STORAGE_KEY,
-            JSON.stringify([starterStory])
-        );
-
-        return [starterStory];
-    }
-
-    try{
-
-        return JSON.parse(data);
-
-    }catch(error){
-
-        return [starterStory];
-
-    }
-
-}
-
-
-/* ==================================================
-   SAVE DATA
-================================================== */
-
-function saveData(data){
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(data)
-    );
-
-}
-
-
-/* ==================================================
-   ESCAPE HTML
-================================================== */
-
-function escapeHTML(text){
-
-    return String(text || "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* ==================================================
-   TEXT → PARAGRAPHS
-================================================== */
-
-function textToHTML(text){
-
-    return escapeHTML(text)
-        .split(/\n\s*\n/)
-        .map(p => `<p>${p.replace(/\n/g,"<br>")}</p>`)
-        .join("");
-
-}
-
-
-/* ==================================================
-   DISPLAY SECTIONS
-================================================== */
-
-function displaySections(){
-
-    const box = document.getElementById("sections");
-
-    const data = getData();
-
-    box.innerHTML = "";
-
-
-    data.forEach((item,index)=>{
-
-        const card = document.createElement("button");
-
-        card.className = "section-card";
-
-        card.innerHTML = `
-
-            <div class="number">
-                ${String(index+1).padStart(2,"0")}
-            </div>
-
-            <div class="section-info">
-
-                <h3>
-                    ${escapeHTML(item.name)}
-                </h3>
-
-                <p>
-                    படிக்க திறக்கவும் →
-                </p>
-
-            </div>
-
-            <div class="arrow">
-                ›
-            </div>
-
-        `;
-
-        card.onclick = function(){
-
-            openStory(item.id);
-
-        };
-
-        box.appendChild(card);
-
+  const STORAGE_KEY = "arulin_ezhuthukal_sections";
+
+  function openFirstStory() {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("addPage").classList.add("hidden");
+    document.getElementById("readerPage").classList.remove("hidden");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
-
-}
-
-
-/* ==================================================
-   OPEN MODAL
-================================================== */
-
-function openModal(){
-
-    document
-        .getElementById("modal")
-        .classList.add("show");
-
-}
+  }
 
 
-/* ==================================================
-   CLOSE MODAL
-================================================== */
+  function goHome() {
+    document.getElementById("readerPage").classList.add("hidden");
+    document.getElementById("addPage").classList.add("hidden");
+    document.getElementById("homePage").classList.remove("hidden");
 
-function closeModal(){
-
-    document
-        .getElementById("modal")
-        .classList.remove("show");
-
-}
-
-
-/* ==================================================
-   READ FILE
-================================================== */
-
-function readFile(file){
-
-    return new Promise((resolve,reject)=>{
-
-        if(!file){
-
-            resolve("");
-
-            return;
-
-        }
-
-        const reader = new FileReader();
-
-        reader.onload = function(){
-
-            resolve(reader.result);
-
-        };
-
-        reader.onerror = reject;
-
-        reader.readAsDataURL(file);
-
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
+  }
 
-}
+
+  function showAddForm() {
+    document.getElementById("homePage").classList.add("hidden");
+    document.getElementById("readerPage").classList.add("hidden");
+    document.getElementById("addPage").classList.remove("hidden");
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
 
 
-/* ==================================================
-   SAVE NEW SECTION
-================================================== */
-
-async function saveSection(){
+  function saveSection() {
 
     const name =
-        document
-        .getElementById("sectionName")
-        .value
-        .trim();
-
+      document.getElementById("sectionName").value.trim();
 
     const text =
-        document
-        .getElementById("sectionText")
-        .value
-        .trim();
+      document.getElementById("sectionText").value.trim();
 
-
-    const imageFile =
-        document
-        .getElementById("sectionImage")
-        .files[0];
-
-
-    const pdfFile =
-        document
-        .getElementById("sectionPDF")
-        .files[0];
-
-
-    if(!name){
-
-        alert("முதலில் பகுதியின் பெயரை எழுதுங்கள்.");
-
-        return;
-
+    if (!name) {
+      alert("முதலில் பகுதியின் பெயரை எழுதுங்கள்.");
+      return;
     }
 
-
-    const image =
-        await readFile(imageFile);
-
-
-    const pdf =
-        await readFile(pdfFile);
-
-
-    const newSection = {
-
-        id:
-            "section-" +
-            Date.now(),
-
-        name:name,
-
-        text:text,
-
-        image:image,
-
-        pdf:pdf
-
-    };
-
-
-    const data = getData();
-
-
-    data.push(newSection);
-
-
-    saveData(data);
-
-
-    document
-        .getElementById("sectionName")
-        .value = "";
-
-
-    document
-        .getElementById("sectionText")
-        .value = "";
-
-
-    document
-        .getElementById("sectionImage")
-        .value = "";
-
-
-    document
-        .getElementById("sectionPDF")
-        .value = "";
-
-
-    closeModal();
-
-
-    displaySections();
-
-
-    alert("புதிய பகுதி வெற்றிகரமாக சேர்க்கப்பட்டது!");
-
-
-}
-
-
-/* ==================================================
-   OPEN STORY
-================================================== */
-
-function openStory(id){
-
-    const data = getData();
-
-
-    const story =
-        data.find(item => item.id === id);
-
-
-    if(!story){
-
-        return;
-
+    if (!text) {
+      alert("உங்கள் எழுத்தை எழுதுங்கள்.");
+      return;
     }
 
+    const sections =
+      JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 
-    document
-        .getElementById("home")
-        .style.display = "none";
+    sections.push({
+      id: Date.now(),
+      name: name,
+      text: text
+    });
 
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify(sections)
+    );
 
-    document
-        .querySelector("footer")
-        .style.display = "none";
+    document.getElementById("sectionName").value = "";
+    document.getElementById("sectionText").value = "";
 
+    loadSections();
 
-    document
-        .getElementById("reader")
-        .style.display = "block";
+    goHome();
 
-
-    document
-        .getElementById("readerTitle")
-        .textContent = story.name;
-
-
-    let content =
-        textToHTML(story.text);
-
-
-    if(story.image){
-
-        content += `
-
-            <img
-                src="${story.image}"
-                alt="${escapeHTML(story.name)}"
-            >
-
-        `;
-
-    }
+    alert("புதிய பகுதி வெற்றிகரமாக சேமிக்கப்பட்டது.");
+  }
 
 
-    if(story.pdf){
+  function loadSections() {
 
-        content += `
+    const container =
+      document.getElementById("savedSections");
 
-            <div class="pdf">
+    const sections =
+      JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 
-                📄 <strong>PDF</strong>
+    container.innerHTML = "";
 
-                <br><br>
+    sections.forEach(function(section) {
 
-                <a
-                    href="${story.pdf}"
-                    target="_blank"
-                >
-                    PDF-ஐ திறக்க / பார்க்க
-                </a>
+      const box =
+        document.createElement("div");
 
-            </div>
+      box.className = "section-box";
 
-        `;
+      box.onclick = function() {
 
-    }
+        openSavedSection(section);
+
+      };
+
+      box.innerHTML =
+        '<div class="section-name">' +
+        escapeHTML(section.name) +
+        '</div>';
+
+      container.appendChild(box);
+
+    });
+
+  }
 
 
-    if(!content){
+  function openSavedSection(section) {
 
-        content =
-            "<p>இந்தப் பகுதியில் இன்னும் உள்ளடக்கம் சேர்க்கப்படவில்லை.</p>";
+    document.getElementById("homePage")
+      .classList.add("hidden");
 
-    }
+    document.getElementById("addPage")
+      .classList.add("hidden");
 
+    const reader =
+      document.getElementById("readerPage");
 
-    document
-        .getElementById("readerContent")
-        .innerHTML = content;
+    reader.classList.remove("hidden");
 
+    reader.innerHTML = `
+
+      <button class="back-button" onclick="goHome()">
+        ← பின்னால் செல்ல
+      </button>
+
+      <div class="reader">
+
+        <h2>${escapeHTML(section.name)}</h2>
+
+        <div class="story-text">
+          ${escapeHTML(section.text)}
+        </div>
+
+      </div>
+
+    `;
 
     window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
+      top: 0,
+      behavior: "smooth"
     });
 
-}
+  }
 
 
-/* ==================================================
-   GO HOME
-================================================== */
+  function escapeHTML(text) {
 
-function goHome(){
+    const div =
+      document.createElement("div");
 
-    document
-        .getElementById("reader")
-        .style.display = "none";
+    div.textContent = text;
 
+    return div.innerHTML;
 
-    document
-        .getElementById("home")
-        .style.display = "block";
+  }
 
 
-    document
-        .querySelector("footer")
-        .style.display = "flex";
-
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
-
-    });
-
-}
-
-
-/* ==================================================
-   YEAR
-================================================== */
-
-document
-    .getElementById("year")
-    .textContent =
-    new Date().getFullYear();
-
-
-/* ==================================================
-   START
-================================================== */
-
-displaySections();
-
-
-/* ==================================================
-   CLOSE MODAL WHEN OUTSIDE CLICK
-================================================== */
-
-document
-    .getElementById("modal")
-    .addEventListener("click",function(event){
-
-        if(event.target === this){
-
-            closeModal();
-
-        }
-
-    });
+  loadSections();
 
 </script>
 
