@@ -1,532 +1,1164 @@
+
 <!DOCTYPE html>
 <html lang="ta">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>அருளின் எழுத்துக்கள்</title>
+<title>அருளின் எழுத்துக்கள்</title>
 
-  <meta name="description" content="அருளின் எழுத்துக்கள் - சென்னையை நோக்கி என் முதல் பயணம்">
-  <meta name="author" content="ம. அருள் செல்வன்">
+<meta name="description"
+content="அருளின் எழுத்துக்கள் — சென்னையை நோக்கி என் முதல் பயணம்">
 
-  <style>
-    * {
-      box-sizing: border-box;
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top left,#fffaf0 0%,transparent 35%),
+        radial-gradient(circle at bottom right,#eee3d2 0%,transparent 35%),
+        #f5efe5;
+    color:#29231e;
+    font-family:"Noto Sans Tamil","Latha","Arial",sans-serif;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    width:min(950px,92%);
+    margin:auto;
+    padding:45px 0 70px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    padding:15px 10px 38px;
+}
+
+.site-title{
+    margin:0;
+    font-size:clamp(35px,8vw,64px);
+    font-weight:900;
+    letter-spacing:.5px;
+    color:#241d18;
+}
+
+.story-title{
+    margin:20px 0 8px;
+    font-size:clamp(25px,5.5vw,43px);
+    font-weight:800;
+    color:#4b372a;
+}
+
+.author{
+    margin-top:10px;
+    font-size:clamp(18px,4vw,25px);
+    color:#806b5a;
+}
+
+/* DECORATION */
+
+.divider{
+    width:100px;
+    height:3px;
+    margin:22px auto 0;
+    border-radius:20px;
+    background:#9a806b;
+}
+
+/* SECTION LIST */
+
+.sections{
+    margin-top:10px;
+}
+
+.section-card{
+    position:relative;
+    background:rgba(255,255,255,.92);
+    border:1px solid #ded2c4;
+    border-radius:22px;
+    margin:18px 0;
+    padding:22px 24px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    box-shadow:0 8px 25px rgba(63,45,30,.08);
+    cursor:pointer;
+    transition:.22s ease;
+}
+
+.section-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(63,45,30,.13);
+}
+
+.section-card:active{
+    transform:scale(.985);
+}
+
+.pdf-icon{
+    width:58px;
+    height:58px;
+    min-width:58px;
+    border-radius:16px;
+    background:#eee5d9;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+}
+
+.section-info{
+    flex:1;
+}
+
+.section-name{
+    font-size:clamp(18px,4vw,23px);
+    font-weight:800;
+    color:#342820;
+}
+
+.section-type{
+    margin-top:5px;
+    font-size:14px;
+    color:#8a7665;
+}
+
+.arrow{
+    font-size:25px;
+    color:#806b5a;
+}
+
+/* ADD BUTTON */
+
+.add-button{
+    width:100%;
+    margin-top:25px;
+    padding:19px;
+    border:2px dashed #a48d78;
+    border-radius:20px;
+    background:rgba(255,255,255,.38);
+    color:#5b4839;
+    font-family:inherit;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.add-button:hover{
+    background:#eee5d9;
+}
+
+/* FORM */
+
+.page{
+    animation:fadeIn .25s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.form-box{
+    background:#fffdf9;
+    border:1px solid #ddd1c2;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 10px 30px rgba(63,45,30,.08);
+}
+
+.form-title{
+    margin:0 0 22px;
+    text-align:center;
+    font-size:28px;
+    color:#382a21;
+}
+
+label{
+    display:block;
+    margin:17px 0 8px;
+    font-weight:800;
+    color:#4d3b2e;
+}
+
+input[type="text"]{
+    width:100%;
+    padding:15px 16px;
+    border:1px solid #cfc1b2;
+    border-radius:13px;
+    outline:none;
+    font-family:inherit;
+    font-size:16px;
+    background:#fff;
+}
+
+input[type="text"]:focus{
+    border-color:#8e7661;
+}
+
+.file-area{
+    border:2px dashed #b29c88;
+    border-radius:18px;
+    padding:25px 18px;
+    text-align:center;
+    background:#faf6f0;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.file-area input{
+    width:100%;
+    font-family:inherit;
+}
+
+.file-note{
+    margin-top:10px;
+    color:#806f61;
+    font-size:14px;
+}
+
+.preview{
+    margin-top:20px;
+    display:none;
+}
+
+.preview iframe{
+    width:100%;
+    height:500px;
+    border:1px solid #d8cabb;
+    border-radius:16px;
+    background:white;
+}
+
+.save-button{
+    width:100%;
+    margin-top:22px;
+    padding:16px;
+    border:none;
+    border-radius:14px;
+    background:#3d3027;
+    color:white;
+    font-family:inherit;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.save-button:hover{
+    background:#554236;
+}
+
+/* BACK BUTTON */
+
+.back-button{
+    border:none;
+    background:#3d3027;
+    color:white;
+    padding:12px 20px;
+    border-radius:12px;
+    font-family:inherit;
+    font-size:16px;
+    cursor:pointer;
+    margin-bottom:20px;
+}
+
+/* PDF VIEWER */
+
+.viewer{
+    background:#fffdf9;
+    border:1px solid #ddd1c2;
+    border-radius:22px;
+    padding:18px;
+    box-shadow:0 10px 30px rgba(63,45,30,.08);
+}
+
+.viewer-title{
+    text-align:center;
+    font-size:28px;
+    margin:5px 0 20px;
+    color:#392a21;
+}
+
+.pdf-frame{
+    width:100%;
+    height:75vh;
+    min-height:550px;
+    border:none;
+    border-radius:15px;
+    background:#eee;
+}
+
+/* EMPTY */
+
+.empty{
+    text-align:center;
+    color:#857364;
+    padding:30px 10px;
+    display:none;
+}
+
+/* HIDDEN */
+
+.hidden{
+    display:none !important;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    margin-top:45px;
+    color:#927f6e;
+    font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        padding-top:28px;
     }
 
-    body {
-      margin: 0;
-      background: #f5f1e8;
-      color: #24201c;
-      font-family: "Noto Sans Tamil", "Latha", sans-serif;
+    .section-card{
+        padding:17px;
+        border-radius:18px;
     }
 
-    .container {
-      width: min(900px, 92%);
-      margin: auto;
-      padding: 45px 0 60px;
+    .pdf-icon{
+        width:50px;
+        min-width:50px;
+        height:50px;
+        font-size:25px;
     }
 
-    .site-title {
-      text-align: center;
-      font-size: clamp(32px, 7vw, 58px);
-      font-weight: 800;
-      margin: 0 0 18px;
-      color: #201b17;
+    .arrow{
+        font-size:21px;
     }
 
-    .story-title {
-      text-align: center;
-      font-size: clamp(24px, 5vw, 40px);
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: #352a22;
+    .form-box{
+        padding:20px;
     }
 
-    .author {
-      text-align: center;
-      font-size: clamp(18px, 4vw, 25px);
-      margin-bottom: 42px;
-      color: #66564a;
+    .preview iframe{
+        height:400px;
     }
 
-    .section-box {
-      background: #ffffff;
-      border: 1px solid #ddd2c5;
-      border-radius: 18px;
-      padding: 22px 24px;
-      margin: 18px 0;
-      cursor: pointer;
-      box-shadow: 0 5px 18px rgba(0,0,0,0.06);
-      transition: 0.2s ease;
+    .pdf-frame{
+        height:70vh;
+        min-height:450px;
     }
-
-    .section-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-    }
-
-    .section-box:active {
-      transform: scale(0.99);
-    }
-
-    .section-name {
-      font-size: 22px;
-      font-weight: 700;
-      color: #30251e;
-    }
-
-    .add-button {
-      width: 100%;
-      border: 2px dashed #9b8877;
-      background: transparent;
-      color: #554438;
-      border-radius: 18px;
-      padding: 18px;
-      margin-top: 20px;
-      font-size: 19px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .add-button:hover {
-      background: #eee7dc;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .reader {
-      background: #fffdf9;
-      border-radius: 20px;
-      padding: 28px;
-      margin-top: 25px;
-      border: 1px solid #ddd2c5;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.07);
-    }
-
-    .reader h2 {
-      text-align: center;
-      font-size: 30px;
-      margin-top: 0;
-      margin-bottom: 30px;
-    }
-
-    .story-text {
-      font-size: 19px;
-      line-height: 2;
-      white-space: pre-line;
-      text-align: left;
-    }
-
-    .back-button {
-      border: none;
-      background: #3d332c;
-      color: white;
-      border-radius: 12px;
-      padding: 12px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 22px;
-    }
-
-    .form-box {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      margin-top: 25px;
-      border: 1px solid #ddd2c5;
-    }
-
-    .form-box input,
-    .form-box textarea {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0 15px;
-      border: 1px solid #cfc3b7;
-      border-radius: 10px;
-      font-size: 16px;
-      font-family: inherit;
-    }
-
-    .form-box textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
-
-    .save-button {
-      width: 100%;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      background: #3d332c;
-      color: white;
-      font-size: 17px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .empty {
-      text-align: center;
-      color: #76685c;
-      padding: 20px;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding-top: 30px;
-      }
-
-      .reader {
-        padding: 20px;
-      }
-
-      .story-text {
-        font-size: 17px;
-        line-height: 1.9;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <!-- MAIN TITLE -->
-  <h1 class="site-title">அருளின் எழுத்துக்கள்</h1>
+    <!-- ================= HEADER ================= -->
 
-  <!-- STORY TITLE -->
-  <h2 class="story-title">சென்னையை நோக்கி என் முதல் பயணம்</h2>
+    <header class="header">
 
-  <!-- AUTHOR -->
-  <div class="author">— ம. அருள் செல்வன்</div>
+        <h1 class="site-title">
+            அருளின் எழுத்துக்கள்
+        </h1>
+
+        <h2 class="story-title">
+            சென்னையை நோக்கி என் முதல் பயணம்
+        </h2>
+
+        <div class="author">
+            — ம. அருள் செல்வன்
+        </div>
+
+        <div class="divider"></div>
+
+    </header>
 
 
-  <!-- SECTION LIST -->
-  <div id="homePage">
+    <!-- ================= HOME PAGE ================= -->
 
-    <div
-      class="section-box"
-      onclick="openFirstStory()"
+    <section id="homePage" class="page">
+
+        <div id="sectionsList" class="sections">
+
+            <!-- FIRST PDF SECTION -->
+
+            <div
+                class="section-card"
+                onclick="openFirstPDF()"
+            >
+
+                <div class="pdf-icon">
+                    📄
+                </div>
+
+                <div class="section-info">
+
+                    <div class="section-name">
+                        முதல் இரண்டு பக்கங்கள்
+                    </div>
+
+                    <div class="section-type">
+                        PDF • 2 பக்கங்கள்
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="emptyMessage" class="empty">
+            இன்னும் புதிய பகுதிகள் சேர்க்கப்படவில்லை.
+        </div>
+
+
+        <!-- ADD NEW SECTION -->
+
+        <button
+            class="add-button"
+            onclick="showAddPage()"
+        >
+            ＋ புதிய பகுதியைச் சேர்க்க
+        </button>
+
+    </section>
+
+
+    <!-- ================= ADD PAGE ================= -->
+
+    <section
+        id="addPage"
+        class="page hidden"
     >
-      <div class="section-name">முதல் இரண்டு பக்கங்கள்</div>
-    </div>
 
-    <div id="savedSections"></div>
-
-    <button class="add-button" onclick="showAddForm()">
-      ＋ புதிய பகுதியைச் சேர்க்க
-    </button>
-
-  </div>
+        <button
+            class="back-button"
+            onclick="goHome()"
+        >
+            ← பின்னால் செல்ல
+        </button>
 
 
-  <!-- STORY READER -->
-  <div id="readerPage" class="hidden">
+        <div class="form-box">
 
-    <button class="back-button" onclick="goHome()">
-      ← பின்னால் செல்ல
-    </button>
-
-    <div class="reader">
-
-      <h2>முதல் இரண்டு பக்கங்கள்</h2>
-
-      <div class="story-text">
-
-சென்னையை நோக்கி என் முதல் பயணம்
-
-நான் அப்பொழுது பதினொன்றாம் வகுப்பு படித்துக் கொண்டிருந்தேன்.
-எனக்குள் அப்பொழுதே ஒரு ஆசை இருந்தது. எப்படியாவது சென்னைக்கு
-ஒரு நாளாவது போய்விட வேண்டும் என்று.
-
-என் தாத்தாவிற்கு என்னை ஒரு முறையாவது சென்னைக்கு அழைத்துச்
-செல்ல வேண்டும் என்று, ஆசை. என் தாத்தாவை பற்றி சொல்ல வேண்டும்
-என்றால் அவர் ஒரு மாற்றுத்திறனாளி ஆவார். அவரின் ஒரு கால் நன்றாக
-இருக்கும் இன்னொரு கால் கட்டைக்காலாக இருக்கும். அவரிடமிருந்து
-நான் கற்றுக்கொண்டது என்னவென்றால் 77 வயதிலும் தன்னம்பிக்கையை
-இழக்காத மனிதர் ஆவார்.
-
-நான் திங்கட்கிழமை அன்று பள்ளிக்குச் சென்றிருந்தேன். "இன்று
-சாயங்காலம் நாம் சென்னைக்குச் செல்லும் ரயிலில் புறப்பட
-வேண்டும்.ஆதலால், நீ இன்று சாயங்காலம் விடுதியை விட்டு வீட்டிற்கு
-வந்துவிடு” என்றார் என் தாத்தா.
-
-நான் அப்பொழுது கேட்டேன் 'அம்மாச்சியும் கூட வராங்களா தாத்தா?”
-"ஆம் அம்மாச்சியும் கூட வர்றாங்க” என்றார் தாத்தா.
-
-திங்கட்கிழமை சாயங்காலம் என்னை வீட்டுக்கு அழைத்துச் செல்ல என்
-அப்பாவும் என் அண்ணனும் பள்ளிக்கு வந்தனர். அப்போது அங்கு
-அமர்ந்திருந்த தலைமை ஆசிரியர் அவர்களிடம் என் தாத்தாவின்
-நிலைமையை சொல்லி மூன்று நாள் விடுப்பு கேட்டார் என் அப்பா.
-
-விடுப்பு கிடைத்த மகிழ்ச்சியில் நான் வேகமாக ஓடி என் பையில் இருந்து
-விடுப்பு விண்ணப்பத்தை எடுத்தேன். தலைமை ஆசிரியர் அதிக
-வேலையில் இருந்ததால், உதவித் தலைமை ஆசிரியரிடம் கையெழுத்தை
-பெற்றேன். அது மட்டுமல்லாமல் அங்கு பணியாற்றும் விடுதிக்காப்பாளர்
-ஐயா அவர்களிடமும் கையெழுத்தைப் பெற்றேன்;
-
-அப்பொழுது என் விடுதிக்காப்பாளர் ஐயா அவர்கள் கூறினார் "வருகை
-மற்றும் வெளியேறும் பதிவில் நீ கையெழுத்துட்டு! வீட்டிற்கு செல்லலாம். ”
-
-இறுதியாக அங்கு பணியாற்றும் பாதுகாவலர் ஐயாவிடம் அந்த விடுப்பு
-விண்ணப்பத்தை கொடுத்துவிட்டு ஆக சந்தோசத்தில் நான் இருந்தேன்;
-
-ஆனால் நான் அதை வெளி காட்டவில்லை.
-
-என் அண்ணனும் இரு சக்கர வாகனத்தை இயக்க என் அப்பாவும் நானும்
-பின்னே உட்கார்ந்து. என் அண்ணன் வண்டியை மெதுவாக இயக்க
-ஆரம்பித்தான் ஒரு வழியாக பள்ளியை சுற்றுச்சுவரை விட்டு வெளியே
-வந்தோம் அப்பொழுது அங்கு ஒரு மேடு பள்ளம் இருக்கும் அந்த மேடு
-பள்ளத்தில் ஏறி இறங்கும் பொழுது எனக்கு ஒன்று ஞாபகம் வந்தது.
-
-அது என்னவென்றால் விடுதிக்காப்பாளர் ஐயா கூறிய வருகை மற்றும்
-வெளியேறும் பதிவில் கையெழுத்திட மறந்து விட்டேன். அதை உடனே என்
-அப்பாவிடம் கூறினேன்.
-
-என் அப்பா கூறினார் "நல்ல வேலை இப்பவே சொல்லிவிட்டாய் சரி நீயும்
-அண்ணனும் போய் பதிவு செய்துவிட்டு வாருங்கள். நான் சாலையில்
-நடந்து செல்கிறேன்” என்றார். அப்பாவை இறக்கி விட்டு நானும்
-அண்ணணும் திரும்பி பள்ளிக்குச் சென்றோம். அங்கு வருகை மற்றும்
-வெளியேறும் பதிவில் கையெழுத்திட்டு வேகமாக ஓடி வந்தேன். ஓடி வரும்
-போது என் சக நண்பர்கள் கூறினர் “என்ன வருகை மற்றும் வெளியேறும்
-பதிவில் பதிவு செய்ய மறந்து விட்டாயா?” நான் எல்லோருக்கும் பதில்
-சொல்லி வந்தேன் "ஆமாண்டா ஆமாண்டா மறந்து விட்டேன்”.
-
-ஒரு வழியாக நான் என் அப்பா என் அண்ணன் மூன்று பேரும் வீட்டிற்கு
-வந்து சேர்ந்தோம். வீட்டிற்கு வந்தவுடனே என் அப்பாவும் என் அண்ணனும்
-கோவிலில் உள்ள வேலையை பார்க்க சென்று விட்டனர்.
-
-என் அன்னையோ பரிமாறும் வேலைக்கு சென்று விட்டார். திரும்பி வர
-எப்படியும் ஒன்பது மணி ஆகும் என்று எண்ணினேன்.
-
-உச்சகட்ட மகிழ்ச்சியில் நான் பத்து மணிக்கு கிளம்ப வேண்டிய நேரத்தில்
-6:00 மணிக்கெல்லாம் கிளம்பி உட்கார்ந்திருந்தேன்.
-
--ம.அருள் செல்வன்
-
-கோவிலூர், ஆலங்குடி,
-புதுக்கோட்டை.
-
-தொடரும்...
-
-      </div>
-
-    </div>
-  </div>
+            <h2 class="form-title">
+                புதிய பகுதியைச் சேர்க்க
+            </h2>
 
 
-  <!-- ADD NEW SECTION FORM -->
-  <div id="addPage" class="hidden">
+            <label for="sectionName">
+                பகுதியின் பெயர்
+            </label>
 
-    <button class="back-button" onclick="goHome()">
-      ← பின்னால் செல்ல
-    </button>
+            <input
+                id="sectionName"
+                type="text"
+                placeholder="உதாரணம்: அடுத்த இரண்டு பக்கங்கள்"
+            >
 
-    <div class="form-box">
 
-      <h2>புதிய பகுதியைச் சேர்க்க</h2>
+            <label>
+                PDF-ஐத் தேர்வு செய்யவும்
+            </label>
 
-      <label>பகுதியின் பெயர்</label>
+            <div class="file-area">
 
-      <input
-        id="sectionName"
-        type="text"
-        placeholder="உதாரணம்: பள்ளியில் நடந்த சம்பவம்"
-      >
+                <input
+                    id="pdfFile"
+                    type="file"
+                    accept="application/pdf,.pdf"
+                    onchange="previewPDF()"
+                >
 
-      <label>எழுத்து</label>
+                <div class="file-note">
+                    PDF file மட்டும் தேர்வு செய்யுங்கள்
+                </div>
 
-      <textarea
-        id="sectionText"
-        placeholder="உங்கள் எழுத்தை இங்கே எழுதுங்கள்..."
-      ></textarea>
+            </div>
 
-      <button class="save-button" onclick="saveSection()">
-        சேமிக்கவும்
-      </button>
 
-    </div>
+            <!-- PDF PREVIEW -->
 
-  </div>
+            <div
+                id="pdfPreview"
+                class="preview"
+            >
+
+                <iframe
+                    id="previewFrame"
+                    title="PDF Preview"
+                ></iframe>
+
+            </div>
+
+
+            <button
+                class="save-button"
+                onclick="savePDFSection()"
+            >
+                💾 PDF-ஐ சேமிக்கவும்
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PDF VIEWER ================= -->
+
+    <section
+        id="viewerPage"
+        class="page hidden"
+    >
+
+        <button
+            class="back-button"
+            onclick="goHome()"
+        >
+            ← பின்னால் செல்ல
+        </button>
+
+
+        <div class="viewer">
+
+            <h2
+                id="viewerTitle"
+                class="viewer-title"
+            >
+                PDF
+            </h2>
+
+
+            <iframe
+                id="pdfViewer"
+                class="pdf-frame"
+                title="PDF Viewer"
+            ></iframe>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        © அருளின் எழுத்துக்கள் • ம. அருள் செல்வன்
+    </footer>
 
 </div>
 
 
 <script>
 
-  const STORAGE_KEY = "arulin_ezhuthukal_sections";
+/* =====================================================
+   DATABASE
+   ===================================================== */
 
-  function openFirstStory() {
-    document.getElementById("homePage").classList.add("hidden");
-    document.getElementById("addPage").classList.add("hidden");
-    document.getElementById("readerPage").classList.remove("hidden");
+const DB_NAME = "ArulinEzhuthukalDB";
+const STORE_NAME = "pdfSections";
+const DB_VERSION = 1;
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+
+/* =====================================================
+   OPEN DATABASE
+   ===================================================== */
+
+function openDatabase(){
+
+    return new Promise((resolve,reject)=>{
+
+        const request =
+            indexedDB.open(DB_NAME,DB_VERSION);
+
+
+        request.onupgradeneeded = function(event){
+
+            const db = event.target.result;
+
+            if(!db.objectStoreNames.contains(STORE_NAME)){
+
+                db.createObjectStore(
+                    STORE_NAME,
+                    {
+                        keyPath:"id",
+                        autoIncrement:true
+                    }
+                );
+
+            }
+
+        };
+
+
+        request.onsuccess = function(){
+
+            resolve(request.result);
+
+        };
+
+
+        request.onerror = function(){
+
+            reject(request.error);
+
+        };
+
     });
-  }
+
+}
 
 
-  function goHome() {
-    document.getElementById("readerPage").classList.add("hidden");
-    document.getElementById("addPage").classList.add("hidden");
-    document.getElementById("homePage").classList.remove("hidden");
+/* =====================================================
+   SAVE PDF
+   ===================================================== */
 
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-
-  function showAddForm() {
-    document.getElementById("homePage").classList.add("hidden");
-    document.getElementById("readerPage").classList.add("hidden");
-    document.getElementById("addPage").classList.remove("hidden");
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  }
-
-
-  function saveSection() {
+async function savePDFSection(){
 
     const name =
-      document.getElementById("sectionName").value.trim();
+        document.getElementById("sectionName")
+        .value
+        .trim();
 
-    const text =
-      document.getElementById("sectionText").value.trim();
+    const fileInput =
+        document.getElementById("pdfFile");
 
-    if (!name) {
-      alert("முதலில் பகுதியின் பெயரை எழுதுங்கள்.");
-      return;
+    const file =
+        fileInput.files[0];
+
+
+    if(!name){
+
+        alert("முதலில் பகுதியின் பெயரை எழுதுங்கள்.");
+
+        return;
     }
 
-    if (!text) {
-      alert("உங்கள் எழுத்தை எழுதுங்கள்.");
-      return;
+
+    if(!file){
+
+        alert("முதலில் PDF-ஐத் தேர்வு செய்யுங்கள்.");
+
+        return;
     }
 
-    const sections =
-      JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 
-    sections.push({
-      id: Date.now(),
-      name: name,
-      text: text
-    });
+    if(
+        file.type !== "application/pdf" &&
+        !file.name.toLowerCase().endsWith(".pdf")
+    ){
 
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(sections)
-    );
+        alert("PDF file மட்டும் தேர்வு செய்யுங்கள்.");
 
-    document.getElementById("sectionName").value = "";
-    document.getElementById("sectionText").value = "";
-
-    loadSections();
-
-    goHome();
-
-    alert("புதிய பகுதி வெற்றிகரமாக சேமிக்கப்பட்டது.");
-  }
+        return;
+    }
 
 
-  function loadSections() {
+    try{
+
+        const db =
+            await openDatabase();
+
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readwrite"
+            );
+
+
+        const store =
+            transaction.objectStore(STORE_NAME);
+
+
+        store.add({
+
+            name:name,
+
+            file:file,
+
+            createdAt:new Date().toISOString()
+
+        });
+
+
+        transaction.oncomplete = function(){
+
+            alert(
+                "PDF வெற்றிகரமாக சேமிக்கப்பட்டது!"
+            );
+
+
+            document.getElementById(
+                "sectionName"
+            ).value = "";
+
+
+            document.getElementById(
+                "pdfFile"
+            ).value = "";
+
+
+            document.getElementById(
+                "pdfPreview"
+            ).style.display = "none";
+
+
+            loadSections();
+
+            goHome();
+
+        };
+
+
+        transaction.onerror = function(){
+
+            alert(
+                "PDF சேமிக்க முடியவில்லை."
+            );
+
+        };
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Browser storage-ல் பிரச்சனை ஏற்பட்டுள்ளது."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD SAVED SECTIONS
+   ===================================================== */
+
+async function loadSections(){
 
     const container =
-      document.getElementById("savedSections");
-
-    const sections =
-      JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-
-    container.innerHTML = "";
-
-    sections.forEach(function(section) {
-
-      const box =
-        document.createElement("div");
-
-      box.className = "section-box";
-
-      box.onclick = function() {
-
-        openSavedSection(section);
-
-      };
-
-      box.innerHTML =
-        '<div class="section-name">' +
-        escapeHTML(section.name) +
-        '</div>';
-
-      container.appendChild(box);
-
-    });
-
-  }
+        document.getElementById(
+            "sectionsList"
+        );
 
 
-  function openSavedSection(section) {
+    try{
 
-    document.getElementById("homePage")
-      .classList.add("hidden");
+        const db =
+            await openDatabase();
 
-    document.getElementById("addPage")
-      .classList.add("hidden");
 
-    const reader =
-      document.getElementById("readerPage");
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readonly"
+            );
 
-    reader.classList.remove("hidden");
 
-    reader.innerHTML = `
+        const store =
+            transaction.objectStore(STORE_NAME);
 
-      <button class="back-button" onclick="goHome()">
-        ← பின்னால் செல்ல
-      </button>
 
-      <div class="reader">
+        const request =
+            store.getAll();
 
-        <h2>${escapeHTML(section.name)}</h2>
 
-        <div class="story-text">
-          ${escapeHTML(section.text)}
-        </div>
+        request.onsuccess = function(){
 
-      </div>
+            const sections =
+                request.result;
 
-    `;
+
+            container.innerHTML = "";
+
+
+            /* FIRST SECTION */
+
+            const first =
+                document.createElement("div");
+
+            first.className =
+                "section-card";
+
+            first.onclick =
+                openFirstPDF;
+
+
+            first.innerHTML = `
+
+                <div class="pdf-icon">
+                    📄
+                </div>
+
+                <div class="section-info">
+
+                    <div class="section-name">
+                        முதல் இரண்டு பக்கங்கள்
+                    </div>
+
+                    <div class="section-type">
+                        PDF • 2 பக்கங்கள்
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    ›
+                </div>
+
+            `;
+
+
+            container.appendChild(first);
+
+
+            /* SAVED SECTIONS */
+
+            sections.forEach(function(section){
+
+                const card =
+                    document.createElement("div");
+
+
+                card.className =
+                    "section-card";
+
+
+                card.onclick = function(){
+
+                    openSavedPDF(section.id);
+
+                };
+
+
+                card.innerHTML = `
+
+                    <div class="pdf-icon">
+                        📄
+                    </div>
+
+                    <div class="section-info">
+
+                        <div class="section-name">
+                            ${escapeHTML(section.name)}
+                        </div>
+
+                        <div class="section-type">
+                            PDF
+                        </div>
+
+                    </div>
+
+                    <div class="arrow">
+                        ›
+                    </div>
+
+                `;
+
+
+                container.appendChild(card);
+
+            });
+
+
+            document.getElementById(
+                "emptyMessage"
+            ).style.display =
+                sections.length === 0
+                    ? "none"
+                    : "none";
+
+        };
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+}
+
+
+/* =====================================================
+   OPEN FIRST PDF
+   ===================================================== */
+
+function openFirstPDF(){
+
+    /*
+       உங்கள் முதல் PDF-ஐ upload செய்த பிறகு
+       அது browser storage-ல் இருக்கும்.
+
+       First PDF இல்லையெனில் upload page காட்டப்படும்.
+    */
+
+    showAddPage();
+
+    document.getElementById(
+        "sectionName"
+    ).value =
+        "முதல் இரண்டு பக்கங்கள்";
+
+}
+
+
+/* =====================================================
+   OPEN SAVED PDF
+   ===================================================== */
+
+async function openSavedPDF(id){
+
+    try{
+
+        const db =
+            await openDatabase();
+
+
+        const transaction =
+            db.transaction(
+                STORE_NAME,
+                "readonly"
+            );
+
+
+        const store =
+            transaction.objectStore(STORE_NAME);
+
+
+        const request =
+            store.get(id);
+
+
+        request.onsuccess = function(){
+
+            const section =
+                request.result;
+
+
+            if(!section){
+
+                alert(
+                    "இந்த PDF கிடைக்கவில்லை."
+                );
+
+                return;
+            }
+
+
+            const url =
+                URL.createObjectURL(
+                    section.file
+                );
+
+
+            document.getElementById(
+                "viewerTitle"
+            ).textContent =
+                section.name;
+
+
+            document.getElementById(
+                "pdfViewer"
+            ).src = url;
+
+
+            document.getElementById(
+                "homePage"
+            ).classList.add("hidden");
+
+
+            document.getElementById(
+                "addPage"
+            ).classList.add("hidden");
+
+
+            document.getElementById(
+                "viewerPage"
+            ).classList.remove("hidden");
+
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        };
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "PDF-ஐ திறக்க முடியவில்லை."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   PREVIEW PDF BEFORE SAVE
+   ===================================================== */
+
+function previewPDF(){
+
+    const input =
+        document.getElementById(
+            "pdfFile"
+        );
+
+
+    const file =
+        input.files[0];
+
+
+    if(!file){
+
+        return;
+    }
+
+
+    if(
+        file.type !== "application/pdf" &&
+        !file.name.toLowerCase().endsWith(".pdf")
+    ){
+
+        alert(
+            "PDF file மட்டும் தேர்வு செய்யுங்கள்."
+        );
+
+        input.value = "";
+
+        return;
+    }
+
+
+    const url =
+        URL.createObjectURL(file);
+
+
+    document.getElementById(
+        "previewFrame"
+    ).src = url;
+
+
+    document.getElementById(
+        "pdfPreview"
+    ).style.display =
+        "block";
+
+}
+
+
+/* =====================================================
+   SHOW ADD PAGE
+   ===================================================== */
+
+function showAddPage(){
+
+    document.getElementById(
+        "homePage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "viewerPage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "addPage"
+    ).classList.remove("hidden");
+
 
     window.scrollTo({
-      top: 0,
-      behavior: "smooth"
+        top:0,
+        behavior:"smooth"
     });
 
-  }
+}
 
 
-  function escapeHTML(text) {
+/* =====================================================
+   GO HOME
+   ===================================================== */
+
+function goHome(){
+
+    document.getElementById(
+        "addPage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "viewerPage"
+    ).classList.add("hidden");
+
+
+    document.getElementById(
+        "homePage"
+    ).classList.remove("hidden");
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =====================================================
+   SECURITY
+   ===================================================== */
+
+function escapeHTML(text){
 
     const div =
-      document.createElement("div");
+        document.createElement("div");
 
-    div.textContent = text;
+    div.textContent =
+        tex
+  return div.innerHTML;
 
-    return div.innerHTML;
-
-  }
+}
 
 
-  loadSections();
+/* =====================================================
+   START
+   ===================================================== */
+
+loadSections();
 
 </script>
 
 </body>
-</html>
+              </html
